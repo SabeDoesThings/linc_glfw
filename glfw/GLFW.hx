@@ -12,7 +12,13 @@ typedef HWND = cpp.Pointer<cpp.Void>;
 @:keep
 @:native("GLFWwindow")
 @:include("linc_glfw.h")
-extern class GLFWwindow {}
+extern class GLFWwindow {
+    @:native('glfwShowWindow')
+    static function glfwShowWindow(window:Pointer<GLFWwindow>):Void;
+
+    @:native('glfwHideWindow')
+    static function glfwHideWindow(window:Pointer<GLFWwindow>):Void;
+}
 
 @:keep
 @:native("GLFWcursor")
@@ -300,12 +306,6 @@ extern class GLFW {
 
     @:native('glfwWindowShouldClose')
     static function glfwWindowShouldClose(window:Pointer<GLFWwindow>):Int;
-
-    @:native('glfwShowWindow')
-    static function glfwShowWindow(window:Pointer<GLFWwindow>):Void;
-
-    @:native('glfwHideWindow')
-    static function glfwHideWindow(window:Pointer<GLFWwindow>):Void;
 
     @:native('glfwSwapBuffers')
     static function glfwSwapBuffers(window:Pointer<GLFWwindow>):Void;
